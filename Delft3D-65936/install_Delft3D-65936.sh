@@ -19,7 +19,6 @@
 
 ## Set the user-defined path - all libraries will be installed inside:
 ## Make sure to change $PWD to where your OpenSees root path is located.
-export SOFTWARE_DIR=/shared/centos7/delft3d
 export VERSION=65936-intel2021-mpich3.4.2
 ## Source environment:
 source env_Delft3D-65936.sh
