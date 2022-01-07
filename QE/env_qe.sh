@@ -7,14 +7,14 @@
 #date            :Jan. 2022
 #version         :0.3    
 #usage           :source env_qe.sh
-#notes           :Sources QE and dependencies using Intel2021 compilers + OpenBlas + OpenMPI. 
+#notes           :Sources QE and dependencies using GNU 10.1.0 compilers and OpenMPI 4.0.5. With support of OpenBLAS, ScalaPack, FFTW3 and LIBXC. 
 #bash_version    :4.2.46(2)-release (x86_64-redhat-linux-gnu)
 #====================================================================================
 
 ## Set the user-defined path - all libraries will be installed inside:
 ## Make sure to change $PWD to where you'd like to install your QE.
-#export SOFTWARE_DIR=$PWD
-export SOFTWARE_DIR=/work/rc/mariana.levi/software/q-e-7.0
+export SOFTWARE_DIR=$HOME/q-e
+export env_script=$HOME/q-e/env_qe.sh
 
 # Set modules:
 module purge
