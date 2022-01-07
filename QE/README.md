@@ -7,6 +7,7 @@ Currently, configured to build on the Cascadelake nodes.
 
 ```bash
 git clone https://github.com/northeastern-rc/software-installation-scripts.git
+cd software-installation-scripts/QE
 ```
 
 2. Create a directory where you'd like to build Quantum Espresso. For example:
