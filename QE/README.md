@@ -1,7 +1,7 @@
 # Quantum Espersso Installation on Discovery
 
 Here are the steps to install Quantum Espresso (V.7.0) on the Discovery cluster.
-Currently, configured to build on the Cascadelake nodes.
+Currently, configured to build on the Cascadelake nodes with: GNU 10.1.0, OpenMPI 4.0.5, OpenBLAS, ScaLAPACK, FFTW3 and LIBXC.
 
 1. Login to Discovery and download the scripts repository:
 
