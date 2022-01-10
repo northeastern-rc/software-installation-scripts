@@ -13,7 +13,7 @@
 #date            :Jan. 2022
 #version         :0.3    
 #usage           :sbatch install_qe.sh
-#notes           :Installs QE and dependencies using GNU 10.1.0 compilers and OpenMPI 4.0.5. With support of OpenBLAS, ScalaPack, FFTW3 and LIBXC.
+#notes           :Installs QE and dependencies using GNU 10.1.0 compilers and OpenMPI 4.1.2. With support of OpenBLAS, ScalaPack, FFTW3 and LIBXC.
 #bash_version    :4.2.46(2)-release (x86_64-redhat-linux-gnu)
 #====================================================================================
 

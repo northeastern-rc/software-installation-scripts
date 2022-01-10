@@ -1,7 +1,7 @@
 # Quantum Espersso Installation on Discovery
 
 Here are the steps to install Quantum Espresso (V.7.0) on the Discovery cluster.
-Currently, configured to build on the Cascadelake nodes with: GNU 10.1.0, OpenMPI 4.0.5, OpenBLAS, ScaLAPACK, FFTW3 and LIBXC.
+Currently, configured to build on the Cascadelake nodes with: GNU 10.1.0, OpenMPI 4.1.2, OpenBLAS, ScaLAPACK, FFTW3 and LIBXC.
 
 1. Login to Discovery and download the scripts repository:
 
@@ -28,7 +28,7 @@ cp env_qe.sh  install_qe.sh  sample_script.sh $HOME/q-e
 cd $HOME/q-e
 sbatch install_qe.sh  
 ```
-By default, the script will build the programs inside directory: `$HOME/q-e/7.0-cascadelake/bin`. If you'd like to change the installation location, edit the file: `env_qe.sh` (change the value of the variable `SOFTWARE_DIR` in line 17).
+By default, the script will build the programs inside directory: `$HOME/q-e/7.0-cascadelake/bin`. If you'd like to change the installation location, edit the file: `env_qe.sh` (change the value of the variable `SOFTWARE_DIR` in line 16).
 
 5. Wait until the job completes, and check the slurm output and error files for any warning or errors. If all goes well, you can proceed to test it.
 

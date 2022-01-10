@@ -7,7 +7,7 @@
 #date            :Jan. 2022
 #version         :0.3    
 #usage           :source env_qe.sh
-#notes           :Sources QE and dependencies using GNU 10.1.0 compilers and OpenMPI 4.0.5. With support of OpenBLAS, ScalaPack, FFTW3 and LIBXC. 
+#notes           :Sources QE and dependencies using GNU 10.1.0 compilers and OpenMPI 4.1.2. With support of OpenBLAS, ScalaPack, FFTW3 and LIBXC. 
 #bash_version    :4.2.46(2)-release (x86_64-redhat-linux-gnu)
 #====================================================================================
 
@@ -20,7 +20,7 @@ export env_script=$HOME/q-e/env_qe.sh
 module purge
 module load discovery
 module load gcc/10.1.0
-module load openmpi/4.0.5-skylake-gcc10.1
+module load openmpi/4.1.2-gcc10.1
 module load openblas/0.3.13-gcc10.1
 module load scalapack/2.1.0-openmpi4.0.5-gcc10.1
 
