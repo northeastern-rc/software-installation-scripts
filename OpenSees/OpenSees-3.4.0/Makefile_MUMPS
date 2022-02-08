@@ -1,0 +1,77 @@
+#
+#  This file is part of MUMPS 5.0.2, released
+#  Feb 2022 , Mariana Levi, Northeastern University
+#
+# These settings for a PC under Debian/linux with standard packages :
+# metis (parmetis), scotch (ptscotch), openmpi, gfortran
+
+# packages installation : 
+# apt-get install libmetis-dev libparmetis-dev libscotch-dev libptscotch-dev libatlas-base-dev openmpi-bin libopenmpi-dev  
+
+# Begin orderings
+LSCOTCHDIR = $(SCOTCH_DIR)
+ISCOTCH   = -I$(SCOTCH_DIR)/include # only needed for ptscotch
+
+LSCOTCH   = -L$(LSCOTCHDIR) -lptesmumps -lptscotch -lptscotcherr -lscotch
+#LSCOTCH   = -L$(LSCOTCHDIR) -lesmumps -lscotch -lscotcherr
+
+LPORDDIR = $(topdir)/PORD/lib/
+IPORD    = -I$(topdir)/PORD/include/
+LPORD    = -L$(LPORDDIR) -lpord
+
+LMETISDIR = $(SOFTWARE_DIR) 
+LPARMETISDIR = $(SOFTWARE_DIR)
+IMETIS    = -I$(SOFTWARE_DIR)/include
+IPARMETIS = -I$(SOFTWARE_DIR)/include
+
+LMETIS    = -L$(LMETISDIR) -lmetis
+LPARMETIS    = -L$(LPARMETISDIR) -lparmetis
+
+# Corresponding variables reused later
+ORDERINGSF = -Dscotch -Dmetis -Dpord -Dptscotch -Dparmetis
+#ORDERINGSF = -Dmetis -Dpord -Dscotch
+LORDERINGS = $(LPARMETIS) $(LMETIS) $(LPORD) $(LSCOTCH)
+IORDERINGSC = $(IPARMETIS) $(IMETIS) $(IPORD) $(ISCOTCH)
+
+ORDERINGSC  = $(ORDERINGSF)
+
+#LORDERINGS = $(LMETIS) $(LPORD) $(LSCOTCH)
+IORDERINGSF = $(ISCOTCH)
+#IORDERINGSC = $(IMETIS) $(IPORD) $(ISCOTCH)
+# End orderings
+################################################################################
+
+PLAT    =
+LIBEXT  = .a
+OUTC    = -o 
+OUTF    = -o
+RM = /bin/rm -f
+CC = mpicc
+FC = mpif90 
+FL = mpif90 
+AR = ar vr 
+RANLIB = ranlib
+
+INCPAR = -I$(MKLROOT)/include -I$(MKLROOT)/include/intel64/ilp64 
+
+LIBPAR = $(MKLROOT)/lib/intel64/libmkl_blas95_ilp64.a $(MKLROOT)/lib/intel64/libmkl_lapack95_ilp64.a \
+  -L$(MKLROOT)/lib/intel64 -lmkl_scalapack_ilp64 -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core \
+  -lmkl_blacs_intelmpi_ilp64 -lpthread -lm -ldl 
+
+INCSEQ = -I$(topdir)/libseq
+LIBSEQ  =  -L$(topdir)/libseq -lmpiseq
+
+LIBOTHERS = -lpthread
+
+#Preprocessor defs for calling Fortran from C (-DAdd_ or -DAdd__ or -DUPPER)
+CDEFS   = -DAdd_
+
+#Begin Optimized options
+# uncomment -fopenmp in lines below to benefit from OpenMP
+OPTF    = -O -DALLOW_NON_INIT -nofor_main -qopenmp
+OPTL    = -O -nofor_main -qopenmp
+OPTC    = -O -qopenmp
+#End Optimized options
+INCS = $(INCPAR)
+LIBS = $(LIBPAR)
+LIBSEQNEEDED =
