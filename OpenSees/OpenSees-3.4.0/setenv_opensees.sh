@@ -11,8 +11,8 @@
 #====================================================================================
 
 ## Set the user-defined path - all libraries will be installed inside:
-## Make sure to change $PWD to where your OpenSees root path is located.
-export SOFTWARE_DIR=/shared/centos7/opensees/3.4.0-mp
+## Make sure to change $HOME/opensees to where your OpenSees root path is located.
+export SOFTWARE_DIR=$HOME/opensees
 
 module purge
 module load discovery

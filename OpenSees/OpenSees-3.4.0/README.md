@@ -1,7 +1,7 @@
 # Installation instructions of OpenSeesMP v. 3.4.0 (Parallel) on Discovery:
 These instructions are set up with the following modules: `intel/compilers-2021.3.0` , `intel/mkl-2021.3.0`, `mpich/3.4.2-intel2021`.
 
-## Step 0 - clone the scripts to your local directory (on a Shell window on Discovery):
+## Step 1 - clone the scripts to your local directory (on a Shell window on Discovery), create folder:
 For example, create a new directory in your $HOME directory:
 ```bash
 cd $HOME
@@ -12,19 +12,23 @@ cd opensees
 cp ~/software-installation-scripts/OpenSees/OpenSees-3.4.0/* .
 ```
 
-## Step 1 - set up the installation environment: 
+## Step 2 - set up the installation environment: 
 Use the settings Shell script `setenv_opensees.sh` to change the following if installing on your own:
-1. Set the user-defined path - all libraries will be installed inside: change variable `SOFTWARE_DIR` to point to where your OpenSees root path should be located.
+1. Set the user-defined path - all libraries will be installed inside: change variable `SOFTWARE_DIR` to point to where your OpenSees root path should be located:
+```bash
+vim setenv_opensees.sh
+```
+Currently, the default directory will build in `$HOME/opensees`.
 2. You can change the compilers, MKL or MPI libraries by loading other modules in lines 18-22. Note that some combinations may not compile or work well together. Make sure the compiler matches the MPI library.
 3. Set up any compilation flags and compiler variables lines 24-28.
 
-## Step 2 - submit the installation script:
+## Step 3 - submit the installation script:
 Run this command to submit the script to build OpenSeesMP as a job on the cluster:
 ```bash
 sbatch install_opensees.sh
 ```
 
-## Step 3 - load and run OpenSeesMP:
+## Step 4 - load and run OpenSeesMP:
 Once the job completes, and there are no job errors, you can now run OpenSeesMP jobs.
 To load it within a Slurm script, use the following example:
 
