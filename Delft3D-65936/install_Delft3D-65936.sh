@@ -53,7 +53,7 @@ CC=icc CXX=icpc FC=ifort CPP='icpc -E' CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLA
 make -j
 make install
 
-#5. readline:
+#4. readline:
 cd $SOFTWARE_DIR/src
 wget https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz
 tar -zxvf readline-8.1.tar.gz
@@ -62,61 +62,7 @@ C=icc CXX=icpc FC=ifort CPP='icpc -E' CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAG
 make -j
 make install
 
-#5. readline:
-cd $SOFTWARE_DIR/src
-wget https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz
-tar -zxvf readline-8.1.tar.gz
-cd readline-8.1
-C=icc CXX=icpc FC=ifort CPP='icpc -E' CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAGS="-L$LIBSDIR/lib" ./configure --prefix=$LIBSDIR --enable-multibyte
-make -j
-make install
-
-#5. readline:
-cd $SOFTWARE_DIR/src
-wget https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz
-tar -zxvf readline-8.1.tar.gz
-cd readline-8.1
-C=icc CXX=icpc FC=ifort CPP='icpc -E' CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAGS="-L$LIBSDIR/lib" ./configure --prefix=$LIBSDIR --enable-multibyte
-make -j
-make install
-
-#5. readline:
-cd $SOFTWARE_DIR/src
-wget https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz
-tar -zxvf readline-8.1.tar.gz
-cd readline-8.1
-C=icc CXX=icpc FC=ifort CPP='icpc -E' CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAGS="-L$LIBSDIR/lib" ./configure --prefix=$LIBSDIR --enable-multibyte
-make -j
-make install
-
-#5. readline:
-cd $SOFTWARE_DIR/src
-wget https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz
-tar -zxvf readline-8.1.tar.gz
-cd readline-8.1
-C=icc CXX=icpc FC=ifort CPP='icpc -E' CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAGS="-L$LIBSDIR/lib" ./configure --prefix=$LIBSDIR --enable-multibyte
-make -j
-make install
-
-#5. readline:
-cd $SOFTWARE_DIR/src
-wget https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz
-tar -zxvf readline-8.1.tar.gz
-cd readline-8.1
-C=icc CXX=icpc FC=ifort CPP='icpc -E' CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAGS="-L$LIBSDIR/lib" ./configure --prefix=$LIBSDIR --enable-multibyte
-make -j
-make install
-
-#5. readline:
-cd $SOFTWARE_DIR/src
-wget https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz
-tar -zxvf readline-8.1.tar.gz
-cd readline-8.1
-C=icc CXX=icpc FC=ifort CPP='icpc -E' CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAGS="-L$LIBSDIR/lib" ./configure --prefix=$LIBSDIR --enable-multibyte
-make -j
-make install
-
-#6. zlib:
+#5. zlib:
 cd $SOFTWARE_DIR/src
 wget https://zlib.net/zlib-1.2.11.tar.gz
 tar -zxvf zlib-1.2.11.tar.gz
@@ -124,7 +70,7 @@ cd zlib-1.2.11
 C=icc CXX=icpc FC=ifort CPP='icpc -E' CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAGS="-L$LIBSDIR/lib" ./configure --prefix=$LIBSDIR
 make install
 
-#7. hdf5:
+#6. hdf5:
 cd $SOFTWARE_DIR/src
 wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.1/src/hdf5-1.10.1.tar.gz
 tar -zxvf hdf5-1.10.1.tar.gz
@@ -133,7 +79,7 @@ CC=mpicc FC=mpif90 CXX=mpicxx CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAGS="-L$LI
 make -j
 make install
 
-#8. netcdf-c:
+#7. netcdf-c:
 cd $SOFTWARE_DIR/src
 wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-c-4.7.4.tar.gz
 tar -zxvf netcdf-c-4.7.4.tar.gz
@@ -142,7 +88,7 @@ CC=mpicc FC=mpif90 CXX=mpicxx CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAGS="-L$LI
 make -j
 make install
 
-#9. netcdf-fortran:
+#8. netcdf-fortran:
 cd $SOFTWARE_DIR/src
 wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-fortran-4.5.3.tar.gz
 tar -zxvf netcdf-fortran-4.5.3.tar.gz
@@ -151,7 +97,7 @@ CC=mpicc FC=mpif90 CXX=mpicxx CPPFLAGS="-fPIC -I$LIBSDIR/include" LDFLAGS="-L$LI
 make -j
 make install
 
-#10. libtool:
+#9. libtool:
 cd $SOFTWARE_DIR/src
 wget  https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz
 tar -zxvf libtool-2.4.6.tar.gz
@@ -160,7 +106,7 @@ cd libtool-2.4.6
 make
 make install
 
-#11. automake-1.15:
+#10. automake-1.15:
 cd $SOFTWARE_DIR/src
 wget https://ftpmirror.gnu.org/automake/automake-1.15.tar.gz
 tar -zxvf automake-1.15.tar.gz
@@ -169,7 +115,7 @@ cd automake-1.15
 make
 make install
 
-## 12. Install D3D:
+## 11. Install D3D:
 cd $DELFT3D_DIR
 ./autogen.sh --verbose >  log.autogen
 cd third_party_open/kdtree2
