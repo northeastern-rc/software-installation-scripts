@@ -24,9 +24,5 @@ module load gcc/7.3.0  mpich/3.3.2-skylake-gcc7.3
 module load netcdf/4.7.4-skylake-gcc7.3 hdf5/1.12.0-skylake-gcc7.3
 module load python/3.8.1
 
-pip install --user mako
-
-
-
 export PATH=$SOFTWARE_INSTALL_PATH/bin:$PATH
 

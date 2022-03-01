@@ -20,6 +20,7 @@
 #====================================================================================
 
 source env_xbeach.bash
+pip install --user mako
 
 mkdir -p $SOFTWARE_DIR $SOFTWARE_INSTALL_PATH
 
@@ -32,6 +33,6 @@ cd $SOFTWARE_DIR
 
 make clean
 
-make
+make -j 32
 
 make install
