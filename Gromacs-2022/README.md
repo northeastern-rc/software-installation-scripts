@@ -1,15 +1,9 @@
-## Installation instructions of Xbeach + MPI + NetCDF on Discovery:
+## Installation instructions of Gromacs-2022 + GCC\OpenMPI on Discovery:
 
-Step 1 - clone the scripts to your local directory:
-```bash
-cd $HOME
-git clone https://github.com/northeastern-rc/software-installation-scripts.git
-cd software-installation-scripts/Xbeach
-sbatch install_xbeach.bash
-```
+GCC verion: 
+Gromacs installtion using gcc/11.1.0
 
-In the file env_xbeach.bash edit the SOFTWARE_DIR to the directory where Xbeach was downloaded
-and replace the SOFTWARE_INSTALL_PATH to the path where you would like to install
+OpenMPI version:
+Gromacs installation using openmpi/4.1.2-gcc10.1 and cuda/11.4
 
-
-
+Gromacs-2022 installation guide: https://manual.gromacs.org/documentation/2022-beta1/install-guide/index.html
