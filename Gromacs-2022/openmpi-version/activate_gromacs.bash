@@ -18,6 +18,8 @@ GROMACS_DIR=${HOME}/gromacs-2022
 module load discovery/2021-10-06
 module load python/3.8.1
 module load cmake/3.18.1
-module load gcc/11.1.0
+module load cuda/11.4
+module load openmpi/4.1.2-gcc10.1
 source ${GROMACS_DIR}/bin/GMXRC
-gmx mdrun -version
+#PATH=$PATH:${HOME}/gromacs-2022/bin
+gmx_mpi mdrun -version
