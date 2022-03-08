@@ -18,4 +18,3 @@ module load python/3.8.1
 module load cmake/3.18.1
 module load cuda/11.4
 module load openmpi/4.1.2-gcc10.1
-##module load openmpi/4.1.1-gcc11.1
