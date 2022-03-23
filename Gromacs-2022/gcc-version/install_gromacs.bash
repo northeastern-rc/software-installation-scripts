@@ -9,25 +9,27 @@
 
 source env_gromacs.bash
 
-cd ${HOME}
-GROMACS_DIR=${HOME}/gromacs-2022
-#REG_TEST=${GROMACS_DIR}/regressiontests-2022
+cd ${INSTALL_DIR}
+## Download Gromacs-2022 software source code ##
 wget https://ftp.gromacs.org/gromacs/gromacs-2022.tar.gz
 tar -zxvf gromacs-2022.tar.gz
 cd ${GROMACS_DIR}
-##wget https://ftp.gromacs.org/regressiontests/regressiontests-2022.tar.gz
-##tar -zxvf regressiontests-2022.tar.gz
+
 mkdir build
 cd build/
-echo "cmake..."
+
+## Configure ##
 cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_INSTALL_PREFIX=${GROMACS_DIR}
 make clean
-echo "make..."
+
+## Build ##
 make -j 32
-echo "make check..."
+
+## Verify the build ##
 make check
-echo "make install..."
+
+## Install to path ${GROMACS_DIR}/bin ##
 make install
-echo "Deleting tar files..."
-#rm -rf ${HOME}/gromacs-2022.tar.gz ${GROMACS_DIR}/regressiontests-2022.tar.gz
-rm -rf ${HOME}/gromacs-2022.tar.gz
+
+## Delete tar file ##
+rm -rf ${INSTALL_DIR}/gromacs-2022.tar.gz
