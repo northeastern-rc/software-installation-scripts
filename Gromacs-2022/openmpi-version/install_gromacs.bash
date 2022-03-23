@@ -9,7 +9,7 @@ set -e
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=install_gromacs2022
 
-source env_gromacs.bash
+source "$( dirname $0 )/env_gromacs.bash"
 
 cd ${INSTALL_DIR}
 ## Download Gromacs-2022 software source code ##
@@ -42,4 +42,4 @@ make check
 make install
 
 ## Delete tar file ##
-rm -rf ${INSTALL_DIR}/gromacs-2022.tar.gz
+rm -f ${INSTALL_DIR}/gromacs-2022.tar.gz
