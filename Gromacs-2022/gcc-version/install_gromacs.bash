@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 #SBATCH -N 1
 #SBATCH -n 32
 #SBATCH -p short

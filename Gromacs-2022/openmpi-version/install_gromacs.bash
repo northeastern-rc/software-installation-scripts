@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 #SBATCH --nodes=1
 #SBATCH --partition=gpu
 #SBATCH --time=02:00:00
