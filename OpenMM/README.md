@@ -15,8 +15,8 @@ cd $HOME/openmm
 ```
 2. Copy over the two shell scripts:
 ```bash
-cp $HOME/software-installation-scripts/env_openmm_miniconda.sh .
-cp $HOME/software-installation-scripts/install_openmm_miniconda.sh .
+cp $HOME/software-installation-scripts/OpenMM/env_openmm_miniconda.sh .
+cp $HOME/software-installation-scripts/OpenMM/install_openmm_miniconda.sh .
 ```
 3. There's no need to directly modify the install script `install_openmm_miniconda.sh` unless you want to change any of the Slurm options, modify compilation flags, or add the additional packages. Note that the only requirement is that both scripts are in the same directory. 
 4. You do need to modify the file `env_openmm_miniconda.sh`. Open it in a file editor and modifiy the following:
