@@ -41,7 +41,7 @@ export SWIGDIR=$OPEMMDIR/swig-3.0.5
 wget https://prdownloads.sourceforge.net/swig/swig-3.0.5.tar.gz
 tar xvzf swig-3.0.5.tar.gz
 cd swig-3.0.5
-./configure 	--prefix=$SWIGDIR \
+./configure	--prefix=$SWIGDIR \
 		--with-perl5=/usr/bin/perl \
 		--with-python=$PYTHON \
 		--with-ruby=/usr/bin/ruby
@@ -59,7 +59,7 @@ mkdir -p build_openmm
 cd build_openmm
 
 ## Note - if building for another architecutre, make sure to modify this line:
-export myOPTflags="-O3 -march=skylake-avx512"
+export MY_OPT_FLAGS="-O3 -march=skylake-avx512"
 
 cmake ../ -DOPENCL_LIBRARY=/shared/centos7/cuda/11.2/lib64/libOpenCL.so \
 	-DOPENMM_BUILD_CUDA_LIB=ON \
@@ -68,9 +68,9 @@ cmake ../ -DOPENCL_LIBRARY=/shared/centos7/cuda/11.2/lib64/libOpenCL.so \
 	-DCUDA_TOOLKIT_ROOT_DIR=/shared/centos7/cuda/11.2 \
 	-DCMAKE_INSTALL_PREFIX=$prefixName \
 	-DPYTHON_EXECUTABLE=$PYTHON \
-	-DCMAKE_C_FLAGS=$myOPTflags \
-	-DCMAKE_CXX_FLAGS=$myOPTflags \
-	-DCMAKE_Fortran_FLAGS=$myOPTflags \
+	-DCMAKE_C_FLAGS=$MY_OPT_FLAGS \
+	-DCMAKE_CXX_FLAGS=$MY_OPT_FLAGS \
+	-DCMAKE_Fortran_FLAGS=$MY_OPT_FLAGS \
 	-DMPI_INCLUDE_PATH=/shared/centos7/openmpi/4.1.0-gcc10.1-cuda11.2/include \
 	-DMPI_LIBRARIES=/shared/centos7/openmpi/4.1.0-gcc10.1-cuda11.2/lib \
 	-DCMAKE_INCLUDE_PATH=/shared/centos7/gcc/10.1.0/include:/shared/centos7/openmpi/4.1.0-gcc10.1-cuda11.2/include:/shared/centos7/cuda/11.2/include:$MYCONDA_DIR/include \
