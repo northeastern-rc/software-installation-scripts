@@ -1,4 +1,4 @@
-###Installation instructions for OpenMM version 7.5 on Discovery (V100 GPU + Skylake_AVX512 cCPU):
+# Installation instructions for OpenMM version 7.5 on Discovery (V100 GPU + Skylake_AVX512 cCPU):
 These instructions are for the installation for OpenMM version 7.5 on the Discovery cluster with Miniconda, GNU 10.1.0 compilers and OpenMPI v. 4.1.0 with CUDA support version 11.2. The installation script will also intall the dependency package Swig v. 3.0.5.
 
 You'll need to copy the appropriate environment shell script `env_openmm_miniconda.sh` (that loads the modules and sets up the environment variables) and the installation script `install_openmm_miniconda.sh` to Discovery to be able to modify and run them.
