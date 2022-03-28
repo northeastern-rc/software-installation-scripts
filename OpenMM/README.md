@@ -1,5 +1,5 @@
-#Installation instructions for OpenMM version 7.5 on Discovery (V100 GPU + Skylake_AVX512 cCPU):
-These instructions are for the installation for OpenMM version 7.5 on the Discovery cluster with Miniconda, GNU 10.1.0 compilers and OpenMPI v. 4.1.0 with CUDA support version 11.2. The installation script will also intall the dependency package Swig v. 3.0.5.
+# Installation instructions for OpenMM version 7.5 on Discovery (V100 GPU + Skylake_AVX512 CPU):
+These instructions are for the installation for OpenMM version 7.5 on the Discovery cluster with Miniconda, GNU 10.1.0 compilers and OpenMPI v. 4.1.0 with CUDA support version 11.2. The installation script will also intall the dependency package Swig v. 3.0.5. 
 
 You'll need to copy the appropriate environment shell script `env_openmm_miniconda.sh` (that loads the modules and sets up the environment variables) and the installation script `install_openmm_miniconda.sh` to Discovery to be able to modify and run them.
 
@@ -15,8 +15,8 @@ cd $HOME/openmm
 ```
 2. Copy over the two shell scripts:
 ```bash
-cp $HOME/software-installation-scripts/env_openmm_miniconda.sh .
-cp $HOME/software-installation-scripts/install_openmm_miniconda.sh .
+cp $HOME/software-installation-scripts/OpenMM/env_openmm_miniconda.sh .
+cp $HOME/software-installation-scripts/OpenMM/install_openmm_miniconda.sh .
 ```
 3. There's no need to directly modify the install script `install_openmm_miniconda.sh` unless you want to change any of the Slurm options, modify compilation flags, or add the additional packages. Note that the only requirement is that both scripts are in the same directory. 
 4. You do need to modify the file `env_openmm_miniconda.sh`. Open it in a file editor and modifiy the following:
