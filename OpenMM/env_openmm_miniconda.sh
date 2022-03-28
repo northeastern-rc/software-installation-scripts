@@ -14,10 +14,10 @@ module load gcc/10.1.0 openmpi/4.1.0-gcc10.1-cuda11.2 cuda/11.2
 ##Activate Conda/python env:
 source $MYCONDA_DIR/bin/activate
 export PYTHON=`which python3.8`
-export prefixName=$OPEMMDIR/$VERSION
+export PREFIXNAME=$OPEMMDIR/$VERSION
 export SWIGDIR=$OPEMMDIR/swig-3.0.5
 
-export PATH=$SWIGDIR/bin:$prefixName/bin:$PATH
-export LD_LIBRARY_PATH=$prefixName/lib:$LD_LIBRARY_PATH
-export LIBRARY_PATH=$prefixName/lib:$LIBRARY_PATH
-export CPATH=$prefixName/include:$CPATH
+export PATH=$SWIGDIR/bin:$PREFIXNAME/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIXNAME/lib:$LD_LIBRARY_PATH
+export LIBRARY_PATH=$PREFIXNAME/lib:$LIBRARY_PATH
+export CPATH=$PREFIXNAME/include:$CPATH
