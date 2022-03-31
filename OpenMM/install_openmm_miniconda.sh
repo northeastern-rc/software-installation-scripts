@@ -10,7 +10,7 @@
 
 #====================================================================================
 #title           :install_openmm_miniconda.sh
-#description     :This script will install the parallel OpenMM - version 7.5. With GPU support and Miniconda. Build script for the Skylake AVX512 arch.
+#description     :This script will install the parallel OpenMM - version 7.7. With GPU support and Miniconda. Build script for the Skylake AVX512 arch.
 #author          :Mariana Levi
 #date            :March 2022
 #version         :0.1    
@@ -50,7 +50,7 @@ make install
 
 export PATH=$SWIGDIR/bin:$PATH
 
-## Install OpenMM:
+## Install OpenMM7.7:
 cd $OPEMMDIR/src
 wget https://github.com/openmm/openmm/archive/refs/tags/7.7.0.tar.gz
 tar -zxf 7.7.0.tar.gz

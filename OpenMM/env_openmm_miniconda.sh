@@ -2,7 +2,7 @@
 ## This script sources the OpenMM environemnt to install and run OpenMM.
 ## Usage: source env_openmm_miniconda.sh
 
-## Define your OpenMM directory. The OpenMM install directory is set to: $OPEMMDIR/7.5.
+## Define your OpenMM directory. The OpenMM install directory is set to: $OPEMMDIR/7.7.
 export OPEMMDIR=$HOME/openmm
 export VERSION=7.7
 
