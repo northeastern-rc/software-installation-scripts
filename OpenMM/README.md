@@ -42,6 +42,7 @@ Here's an example template of an OpenMM sbatch script:
 #SBATCH -n 10
 #SBATCH -p gpu
 #SBATCH --gres=gpu:v100-sxm2:1
+#SBATCH --constraint=skylake_avx512
 #SBATCH -t 08:00:00
 #SBATCH --output=openmm_myrun.out
 #SBATCH --error=openmm_myrun.err

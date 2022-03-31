@@ -3,6 +3,7 @@
 #SBATCH -n 10
 #SBATCH -p gpu
 #SBATCH --gres=gpu:v100-sxm2:1
+#SBATCH --constraint=skylake_avx512
 #SBATCH -t 04:00:00
 #SBATCH --output=openmm_install.out
 #SBATCH --error=openmm_install.err
@@ -23,7 +24,6 @@ set -e
 ## Set the software environment:
 source env_openmm_miniconda.sh
 
-mkdir -p $OPEMMDIR
 
 ## set up miniconda3 virtual environment for openmm:
 conda update conda -y ##comment this line out if using a module instead of your own miniconda3.
@@ -42,9 +42,9 @@ wget https://prdownloads.sourceforge.net/swig/swig-3.0.5.tar.gz
 tar xvzf swig-3.0.5.tar.gz
 cd swig-3.0.5
 ./configure	--prefix=$SWIGDIR \
-		--with-perl5=/usr/bin/perl \
-		--with-python=$PYTHON \
-		--with-ruby=/usr/bin/ruby
+	--with-perl5=/usr/bin/perl \
+	--with-python=$PYTHON \
+	--with-ruby=/usr/bin/ruby
 make -j
 make install
 
@@ -52,21 +52,22 @@ export PATH=$SWIGDIR/bin:$PATH
 
 ## Install OpenMM:
 cd $OPEMMDIR/src
-wget https://github.com/openmm/openmm/archive/refs/tags/7.5.0.tar.gz
-tar -zxvf 7.5.0.tar.gz
-cd openmm-7.5.0
+wget https://github.com/openmm/openmm/archive/refs/tags/7.7.0.tar.gz
+tar -zxf 7.7.0.tar.gz
+cd openmm-7.7.0
 mkdir -p build_openmm
 cd build_openmm
 
 ## Note - if building for another architecutre, make sure to modify this line:
-export MY_OPT_FLAGS="-O3 -march=skylake-avx512"
+#export MY_OPT_FLAGS="-03 -march=skylake-avx512"
+export MY_OPT_FLAGS="-march=skylake-avx512"
 
 cmake ../ -DOPENCL_LIBRARY=/shared/centos7/cuda/11.2/lib64/libOpenCL.so \
 	-DOPENMM_BUILD_CUDA_LIB=ON \
 	-DOPENMM_BUILD_OPENCL_LIB=OFF \
 	-DCUDA_HOST_COMPILER=/shared/centos7/gcc/10.1.0/bin/gcc \
 	-DCUDA_TOOLKIT_ROOT_DIR=/shared/centos7/cuda/11.2 \
-	-DCMAKE_INSTALL_PREFIX=$prefixName \
+	-DCMAKE_INSTALL_PREFIX=$PREFIXNAME \
 	-DPYTHON_EXECUTABLE=$PYTHON \
 	-DCMAKE_C_FLAGS=$MY_OPT_FLAGS \
 	-DCMAKE_CXX_FLAGS=$MY_OPT_FLAGS \
@@ -79,3 +80,7 @@ cmake ../ -DOPENCL_LIBRARY=/shared/centos7/cuda/11.2/lib64/libOpenCL.so \
 make -j
 make install
 make PythonInstall
+
+## Deleting tar files
+rm $OPEMMDIR/src/swig-3.0.5.tar.gz
+rm $OPEMMDIR/src/7.7.0.tar.gz
