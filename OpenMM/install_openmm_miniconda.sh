@@ -22,7 +22,7 @@
 set -e
 
 ## Set the software environment:
-source env_openmm_miniconda.sh
+source "$( dirname $0 )/env_openmm_miniconda.sh"
 
 
 ## set up miniconda3 virtual environment for openmm:
