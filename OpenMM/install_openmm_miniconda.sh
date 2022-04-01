@@ -52,7 +52,6 @@ export PATH=$SWIGDIR/bin:$PATH
 
 ## Install OpenMM7.7:
 cd $OPEMMDIR/src
-wget https://github.com/openmm/openmm/archive/refs/tags/7.7.0.tar.gz
 wget -O openmm-7.7.0.tar.gz https://github.com/openmm/openmm/archive/refs/tags/7.7.0.tar.gz
 tar -zxf openmm-7.7.0.tar.gz
 cd openmm-7.7.0
