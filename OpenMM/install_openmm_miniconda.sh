@@ -53,7 +53,8 @@ export PATH=$SWIGDIR/bin:$PATH
 ## Install OpenMM7.7:
 cd $OPEMMDIR/src
 wget https://github.com/openmm/openmm/archive/refs/tags/7.7.0.tar.gz
-tar -zxf 7.7.0.tar.gz
+wget -O openmm-7.7.0.tar.gz https://github.com/openmm/openmm/archive/refs/tags/7.7.0.tar.gz
+tar -zxf openmm-7.7.0.tar.gz
 cd openmm-7.7.0
 mkdir -p build_openmm
 cd build_openmm
@@ -83,4 +84,4 @@ make PythonInstall
 
 ## Deleting tar files
 rm $OPEMMDIR/src/swig-3.0.5.tar.gz
-rm $OPEMMDIR/src/7.7.0.tar.gz
+rm $OPEMMDIR/src/openmm-7.7.0.tar.gz
