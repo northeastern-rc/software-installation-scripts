@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #SBATCH -N 1
 #SBATCH -n 32
 #SBATCH -p short
@@ -12,27 +11,29 @@
 #title           :install_xbeach.bash
 #description     :This script will install the Xbeach with NetCDF and MPI support.
 #author          :Prasanth Dwadasi
-#date            :Feb. 2022
+#date            :March. 2022
 #version         :5920   
 #usage           :sbatch install_xbeach.bash
-#notes           :Installs Xbeach with Netcdf 4.7.4 and mpich 3.3.2 support
+#notes           :Installs Xbeach with Netcdf and openmpi 4.0.5 support
 #bash_version    :4.2.46(2)-release (x86_64-redhat-linux-gnu)
 #====================================================================================
 
+set -e
+
 source env_xbeach.bash
-pip install --user mako
 
-mkdir -p $SOFTWARE_DIR $SOFTWARE_INSTALL_PATH
+pip install --user mako numpy
 
-cd $SOFTWARE_DIR
+rm -rf $BUILD_PATH $SOFTWARE_INSTALL_PATH
 
-./autogen.sh
+mkdir -p $SOFTWARE_INSTALL_PATH
+mkdir -p $BUILD_PATH
+cd $BUILD_PATH
 
-./configure --prefix=$SOFTWARE_INSTALL_PATH PKG_CONFIG_PATH=/shared/centos7/netcdf/4.7.4-skylake-gcc7.3/lib/pkgconfig/  --with-mpi --with-netcdf
+FC=gfortran MPIFC=`which mpif90` PKG_CONFIG_PATH=/usr/lib64/pkgconfig $SOFTWARE_DIR/configure  --prefix=$SOFTWARE_INSTALL_PATH --with-mpi --with-netcdf NETCDF_FORTRAN_LIBS="-L/usr/lib64 -lnetcdff" NETCDF_FORTRAN_CFLAGS="-I/usr/lib64/gfortran/modules" NETCDF_CFLAGS="-I/usr/lib64/gfortran/modules" NETCDF_LIBS="-L/usr/lib64 -lnetcdf" 
 
-
-make clean
-
-make -j 32
+make
 
 make install
+
+# bash install_xbeach.bash 2>&1 | tee output.log
