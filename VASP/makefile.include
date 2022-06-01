@@ -19,11 +19,6 @@ FFLAGS     = -assume byterecl -w -march=skylake_avx512
 OFLAG      = -O2
 OFLAG_IN   = $(OFLAG)
 DEBUG      = -O0
-
-#----------------------
-MKLROOT=/shared/centos7/intel/oneapi/2021.1_u9-base/mkl/latest
-#----------------------
-
 MKL_PATH   = $(MKLROOT)/lib/intel64
 BLAS       =
 LAPACK     =

@@ -6,7 +6,6 @@
 #SBATCH --mem=10G
 #SBATCH -t 04:00:00
 #SBATCH --constraint=cascadelake
-#SBATCH --constraint=ib
 #SBATCH -J install_vasp
 
 
