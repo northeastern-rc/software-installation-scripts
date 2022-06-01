@@ -1,0 +1,61 @@
+CPP_OPTIONS= -DHOST=\"LinuxIFC\"\
+             -DMPI -DMPI_BLOCK=8000 \
+             -Duse_collective \
+             -DscaLAPACK \
+             -DCACHE_SIZE=4000 \
+             -Davoidalloc \
+             -Duse_bse_te \
+             -Dtbdyn \
+             -Duse_shmem
+
+CPP        = fpp -f_com=no -free -w0 -march=skylake_avx512 $*$(FUFFIX) $*$(SUFFIX) $(CPP_OPTIONS)
+
+FC         = mpif90
+FCL        = mpif90 -mkl=sequential -lstdc++
+
+FREE       = -free -names lowercase
+
+FFLAGS     = -assume byterecl -w -march=skylake_avx512
+OFLAG      = -O2
+OFLAG_IN   = $(OFLAG)
+DEBUG      = -O0
+
+#----------------------
+MKLROOT=/shared/centos7/intel/oneapi/2021.1_u9-base/mkl/latest
+#----------------------
+
+MKL_PATH   = $(MKLROOT)/lib/intel64
+BLAS       =
+LAPACK     =
+BLACS      = -lmkl_blacs_openmpi_lp64 $(MKLROOT)/lib/intel64/libmkl_blacs_openmpi_ilp64.a
+SCALAPACK  = $(MKLROOT)/lib/intel64/libmkl_scalapack_lp64.a $(BLACS)
+
+OBJECTS    = fftmpiw.o fftmpi_map.o fft3dlib.o fftw3d.o
+
+INCS       =-I$(MKLROOT)/include/fftw
+
+LLIBS      = $(SCALAPACK) $(LAPACK) $(BLAS)
+
+OBJECTS_O1 += fftw3d.o fftmpi.o fftmpiw.o
+OBJECTS_O2 += fft3dlib.o
+
+CXX      = mpicxx
+CC       = mpicc
+
+CPP_LIB    = $(CPP)
+FC_LIB     = $(FC)
+CC_LIB     = mpicc
+CFLAGS_LIB = -O2 -march=skylake_avx512
+FFLAGS_LIB = -O2 -march=skylake_avx512
+FREE_LIB   = $(FREE)
+
+OBJECTS_LIB= linpack_double.o getshmem.o
+
+# For the parser library
+CXX_PARS   = mpicxx
+
+LIBS       += parser
+LLIBS      += -Lparser -lparser -lstdc++
+
+SRCDIR     = ../../src
+BINDIR     = ../../bin
