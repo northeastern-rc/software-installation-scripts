@@ -12,9 +12,6 @@
 ## Note - make sure the file relion-env.bash is in the same location as this script.
 set -e 
 
-## Source environment variables and modules to install RELION:
-source "$( dirname $0 )/relion-env.bash"
-
 ## Download software:
 mkdir -p ${SOFTWARE_DIR} 
 cd ${SOFTWARE_DIR}

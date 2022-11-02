@@ -16,7 +16,10 @@ cd software-installation-scripts
 cd Relion
 ```
 
-4. Modify source code verion and installation paths inside the script `relion-env.bash` as needed.
+4. Modify source code verion and installation paths inside the script `relion-env.bash` as needed. Then, source the environment script:
+```bash
+source relion-env.bash
+```
 
 5. Submit the installation script to the scheduler:
 ```bash
