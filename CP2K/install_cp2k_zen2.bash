@@ -25,16 +25,20 @@ set -e
 mkdir -p $SOFTWARE_DIR
 cd $SOFTWARE_DIR
 
+## Download software:
 wget https://github.com/cp2k/cp2k/releases/download/v$VERSION.0/cp2k-$VERSION.tar.bz2
 tar -xvf cp2k-$VERSION.tar.bz2
 mv $SOFTWARE_DIR/cp2k-$VERSION $INSTALL_DIR
 cd $INSTALL_DIR/tools/toolchain
 
+## Install toolchain:
 ./install_cp2k_toolchain.sh --no-check-certificate -j 64 --with-gcc=system --with-cmake=system --with-openmpi=system --with-mkl=system --with-libsmm=install --with-libxsmm=no --with-spla=no --with-sirius=no 
 
 cp $INSTALL_DIR/tools/toolchain/install/arch/* $INSTALL_DIR/arch/. 
 
+## source toolchain:
 source $INSTALL_DIR/tools/toolchain/install/setup  
 
+## build cp2k:
 cd $INSTALL_DIR
 make -j 64 ARCH=local VERSION="ssmp sdbg psmp pdbg"

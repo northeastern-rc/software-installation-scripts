@@ -13,15 +13,16 @@
 #====================================================================================
 
 ## Set the user-defined path - all libraries will be installed inside:
-## Make sure to change $PWD to where your OpenSees root path is located.
+## Make sure to change $PWD to where your CP2K root path is located.
 export SOFTWARE_DIR=$HOME/cp2k
 
 VERSION=9.1
 ARCH=zen2
 COMPILER=gcc
 
+## Also, set the install directory as desired:
 export NICKNAME=$VERSION-$ARCH-$COMPILER
-export INSTALL_DIR=$SOFTWARE_DIR/cp2k-$NICKNAME
+export INSTALL_DIR=$HOME/cp2k/$NICKNAME
 
 module purge
 module load discovery
