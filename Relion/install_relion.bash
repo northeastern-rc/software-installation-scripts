@@ -13,19 +13,30 @@
 set -e 
 
 ## Source environment variables and modules to install RELION:
-source relion-env.bash 
+source "$( dirname $0 )/relion-env.bash"
 
 ## Download software:
+mkdir -p ${SOFTWARE_DIR} 
 cd ${SOFTWARE_DIR}
 git clone https://github.com/3dem/relion.git
 cd relion
 ## Switch to the desired branch:
 git checkout ${RELION_VERSION}
 ## Create a build directory:
-mkdir build-${RELION_VERSION}
-cd build-${RELION_VERSION}
+mkdir -p ${BUILD_DIR}
+cd ${BUILD_DIR}
 ## Configure the build - using V100 GPU 70 ARCH, MKL support and MPI support:
-CC=icc CXX=icpc cmake .. -DCUDA_ARCH=70 -DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} -DMKLFFT=ON -DTIFF_LIBRARY=/shared/centos7/tiff/4.0.9/lib/libtiff.so -DTIFF_INCLUDE_DIR=/shared/centos7/tiff/4.0.9/include -DCUDA=ON -DCUDA_NVCC_FLAGS="-allow-unsupported-compiler"
+CC=icc \
+CXX=icpc \
+cmake .. \
+-DCUDA_ARCH=70 \
+-DCMAKE_INSTALL_PREFIX=${INSTALLATION_DIR} \
+-DMKLFFT=ON \
+-DTIFF_LIBRARY=/shared/centos7/tiff/4.0.9/lib/libtiff.so \
+-DTIFF_INCLUDE_DIR=/shared/centos7/tiff/4.0.9/include \
+-DCUDA=ON \
+-DCUDA_NVCC_FLAGS="-allow-unsupported-compiler"
+
 ## Build the software:
 make -j12
 ## Install it to the desired location:
