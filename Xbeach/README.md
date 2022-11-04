@@ -9,7 +9,14 @@ sbatch install_xbeach.bash
 ```
 
 In the file env_xbeach.bash edit the SOFTWARE_DIR to the directory where Xbeach was downloaded
-and replace the SOFTWARE_INSTALL_PATH to the path where you would like to install
+and replace the SOFTWARE_INSTALL_PATH to the path where you would like to install xbeach
+
+To run xbeach :
+```
+Using MPI:
+module load openmpi/4.0.5 
+mpirun -n <number of process> xbeach
+```
 
 
 
