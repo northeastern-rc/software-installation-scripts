@@ -15,9 +15,9 @@
 ## Set SOFTWARE_DIR to the path where the xbeach files were located.
 ## You can modify the software and install directory paths:
 
-export SOFTWARE_DIR=/work/rc/shared/xbeach/trunk/
-export SOFTWARE_INSTALL_PATH=$HOME/software/xbeach/gcc4/install
-export BUILD_PATH=$HOME/software/xbeach/gcc4/build
+export SOFTWARE_DIR=/shared/centos7/xbeach/build-mpi3.3-netcdf4.7/trunk
+export SOFTWARE_INSTALL_PATH=/shared/centos7/xbeach/5920/
+export BUILD_PATH=/shared/centos7/xbeach/build
 
 module load gcc/4.8.5
 module load openmpi/4.0.5
